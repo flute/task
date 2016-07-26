@@ -1,0 +1,84 @@
+<!--
+如图，模拟一个队列，队列的每个元素是一个数字，初始队列为空
+有一个input输入框，以及4个操作按钮
+点击"左侧入"，将input中输入的数字从左侧插入队列中；
+点击"右侧入"，将input中输入的数字从右侧插入队列中；
+点击"左侧出"，读取并删除队列左侧第一个元素，并弹窗显示元素中数值；
+点击"右侧出"，读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
+点击队列中任何一个元素，则该元素会被从队列中删除
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task-18</title>
+	<style type="text/css">
+		a{
+			display: inline-block;
+			background-color: red;
+			color: #fff;
+			font-size: 16px;
+			padding: 5px;
+			margin: 0 5px;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<input type="number" name="data" id="">
+		<section id="input">
+			<button>左侧入</button>
+			<button>右侧入</button>
+			<button>左侧出</button>
+			<button>右侧出</button>
+		</section>
+	</section>
+	<section id="show"></section>
+<script type="text/javascript">
+//空数组
+var data = [];
+/**
+ * 渲染页面
+ */
+function render(){
+	if(data){
+		var html = '';
+		var show = document.getElementById('show');
+		for( var i=0;i<data.length;i++ ){
+			html += '<a>'+data[i]+'</a>';
+		}
+		show.innerHTML = html;
+	}
+}
+/**
+ * 给按钮绑定事件
+ */
+function addEvent(){
+	var dom = document.getElementById('input').addEventListener('click',function(event){
+		var num = document.getElementsByName('data')[0].value;
+		if( !num || !num.match(/^\d+$/) ) alert('请输入数字');
+		else{
+			switch(event.target.innerText){
+				case '左侧入':
+					data.unshift(num); render();
+					break;
+				case '右侧入':
+					data.push(num); render();
+					break;
+				case '左侧出':
+					var shift = data.shift(); render(); alert(shift);
+					break;
+				case '右侧出':
+					var pop = data.pop(); render(); alert(pop);
+					break;
+				default:
+					console.log('执行错误，请重新尝试！');
+			}
+			//console.log(event.target.innerText+':'+num);
+		}
+	})
+}
+
+addEvent();
+</script>
+</body>
+</html>

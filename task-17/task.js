@@ -59,11 +59,11 @@ function renderChart() {
   var type = pageState.nowGraTime;
   var city = pageState.nowSelectCity;
   var dom = document.getElementsByClassName('aqi-chart-wrap');
-  for( var data in chartData.type.city ){
+  for( var data in chartData[pageState.nowGraTime][pageState.nowSelectCity] ){
     var d = document.createElement('div');
-    d.style.width = 1200/chartData.type.city.length-10;
+    d.style.width = 1200/chartData[pageState.nowGraTime][pageState.nowSelectCity].length-10;
     d.style.float = 'left';
-    d.style.height = chartData.type.city[data];
+    d.style.height = chartData[pageState.nowGraTime][pageState.nowSelectCity][data];
     d.style.left = '10px';
     dom.appendChild(d);
   }
