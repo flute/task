@@ -1,0 +1,84 @@
+<!--
+参考示例图，在页面中展现一颗二叉树的结构
+提供一个按钮，显示开始遍历，点击后，以动画的形式呈现遍历的过程
+二叉树的遍历算法和方式自定，前序中序后序皆可，但推荐可以提供多种算法的展示（增加多个按钮，每个按钮对应不同的算法）
+当前被遍历到的节点做一个特殊显示（比如不同的颜色）
+每隔一段时间（500ms，1s等时间自定）再遍历下一个节点
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_22</title>
+	<style>
+		.root {
+			display: flex;
+			padding: 20px;
+			width: 1000px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			margin-bottom: 10px;
+			justify-content: space-between;
+		}
+		.child_1 {
+			display: flex;
+			padding: 20px;
+			width: 450px;
+			height: 260px;
+			border: 1px solid red;
+			justify-content: space-between;
+		}
+		.child_2 {
+			display: flex;
+			padding: 20px;
+			width: 170px;
+			height: 220px;
+			border: 1px solid green;
+			justify-content: space-between;
+		}
+		.child_3 {
+			display: flex;
+			padding: 20px;
+			width: 35px;
+			height: 180px;
+			border: 1px solid blue;
+			justify-content: space-between;
+		}
+		input {
+			margin-left: 100px;
+			width: 50px;
+			height: 40px;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="root">
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+	</div>
+	<input type="button" value="前序">
+	<input type="button" value="中序">
+	<input type="button" value="后序">
+<script type="text/javascript" src="task-22.js"></script>
+</body>
+</html>
